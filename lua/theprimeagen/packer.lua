@@ -13,13 +13,15 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
+  use 'Mofiqul/dracula.nvim'
+
+--  use({
+--	  'rose-pine/neovim',
+--	  as = 'rose-pine',
+--	  config = function()
+--		  vim.cmd('colorscheme rose-pine')
+--	  end
+--  })
 
   use({
       "folke/trouble.nvim",
@@ -73,6 +75,13 @@ return require('packer').startup(function(use)
   use("github/copilot.vim")
   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
+
+  -- Prettier
+  use {
+      "prettier/vim-prettier",
+      run = "yarn install",
+      ft = {'javascript', 'typescript', 'css', 'markdown', 'html'}
+  }
 
 end)
 
