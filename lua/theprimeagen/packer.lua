@@ -83,5 +83,7 @@ return require('packer').startup(function(use)
       ft = {'javascript', 'typescript', 'css', 'markdown', 'html', 'javascriptreact', 'typescriptreact'}
   }
 
+  -- Comments
+  use("terrortylor/nvim-comment")
 end)
 
