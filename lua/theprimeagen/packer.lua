@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
 
   -- Prettier
   use {
-      "prettier/vim-prettier",
+      "adnan007d/vim-prettier",
       run = "yarn install",
       ft = {'javascript', 'typescript', 'css', 'markdown', 'html', 'javascriptreact', 'typescriptreact', 'json'}
   }
