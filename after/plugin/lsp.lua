@@ -1,10 +1,15 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
+  'emmet_ls',
+  'gopls',
+  'tailwindcss',
+  'svelte',
 })
 
 -- Fix Undefined global 'vim'
@@ -28,13 +33,13 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  suggest_lsp_servers = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -55,6 +60,11 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+  virtual_text = true
 })
 
+
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+})
